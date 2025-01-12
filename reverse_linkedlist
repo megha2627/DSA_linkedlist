@@ -1,0 +1,35 @@
+Given the head of a singly linked list, reverse the list, and return the reversed list.
+
+
+class Solution {
+    public ListNode reverseList1(ListNode prev,ListNode current){
+        ListNode temp;
+        if(current==null){
+            return prev;
+           
+           //  reverseList1(prev,current);
+
+        }
+        else{
+             temp=current.next;
+            current.next=prev;
+            prev=current;
+            current=temp;
+           return  reverseList1(prev,current);
+
+        }
+       
+
+    }
+    public ListNode reverseList(ListNode head) {
+        ListNode current=head;
+        ListNode prev=null;
+        Solution prev1=new Solution();
+        ListNode  prev2=prev1.reverseList1(prev,current);
+        
+        return prev2;
+        
+        
+        
+    }
+}
